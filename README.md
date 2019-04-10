@@ -19,7 +19,8 @@ logger = logging.getLogger('MyCoolProject')
 # Instantiate your kafka logging handler object
 kafka_handler_obj = KafkaLoggingHandler(KAFKA_BOOTSTRAP_SERVER,
                                         TOPIC,
-                                        ssl_cafile=KAFKA_CA)
+                                        ssl_cafile=KAFKA_CA,
+                                        unhandled_exception_logger=logger,)
 
 logger.addHandler(kafka_handler_obj)
 # Set logging level
